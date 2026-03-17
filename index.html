@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stopwatch-container">
+    <div id="display">00:00:00.00</div>
+    
+    <div class="controls">
+        <button id="startPauseBtn" onclick="startPause()">Start</button>
+        <button onclick="lap()">Lap</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+
+    <ul id="lapsList"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

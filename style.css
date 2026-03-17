@@ -1,0 +1,92 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.stopwatch-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 60px;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 400px;
+}
+
+#display {
+    font-size: clamp(2rem, 5vw, 3rem);
+    white-space: nowrap;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Specific Button Colors */
+#startPauseBtn { background: #00d2ff; color: #0f0c29; }
+#startPauseBtn:hover { background: #3aedff; transform: translateY(-3px); }
+
+button:nth-child(2) { border: 1px solid #00d2ff; color: #00d2ff; background: transparent; }
+button:nth-child(2):hover { background: rgba(0, 210, 255, 0.1); }
+
+button:last-child { color: #ff4b2b; }
+button:last-child:hover { background: rgba(255, 75, 43, 0.1); }
+
+/* Lap List Styling */
+#lapsList {
+    margin-top: 25px;
+    max-height: 120px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+#lapsList li {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+.running {
+    box-shadow: 0 0 20px #4ecca3;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(0, 210, 255, 0.6); }
+    100% { box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); }
+}
+
+.stopwatch-container.active {
+    animation: pulse 2s infinite ease-in-out;
+    border: 1px solid rgba(0, 210, 255, 0.5);
+}
